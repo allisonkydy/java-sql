@@ -195,4 +195,26 @@ deletes 3 records instead of 18, but I can only find three customers that do not
   - account `name` should be unique.
   - account `budget` is required.
   
-    
+  added database script to repo as "budget-script"
+  
+  here is the script for the accounts table specifically:
+  
+	-- Table: public.accounts
+
+	-- DROP TABLE public.accounts;
+
+	CREATE TABLE public.accounts
+	(
+		id integer NOT NULL DEFAULT nextval('accounts_id_seq'::regclass),
+		name text COLLATE pg_catalog."default",
+		budget numeric NOT NULL,
+		CONSTRAINT accounts_pkey PRIMARY KEY (id),
+		CONSTRAINT accounts_name_key UNIQUE (name)
+
+	)
+
+	TABLESPACE pg_default;
+
+	ALTER TABLE public.accounts
+		OWNER to postgres;
+
