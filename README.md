@@ -65,6 +65,9 @@ ORDER BY order_date DESC
 ### find all suppliers who have names longer than 20 characters. You can use `length(company_name)` to get the length of the name. Returns 11 records.
 > This can be done with SELECT and WHERE clauses
 
+SELECT *
+FROM suppliers
+WHERE length(company_name) > 20
 
 ### find all customers that include the word 'MARKET' in the contact title. Should return 19 records.
 > This can be done with SELECT and a WHERE clause using the LIKE keyword
