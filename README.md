@@ -105,6 +105,10 @@ WHERE customer_id = 'SHIRE'
 
 > There is more information about the COUNT clause on [W3 Schools](https://www.w3schools.com/sql/sql_count_avg_sum.asp)
 
+SELECT c.company_name, count(o.customer_id) as number_of_orders
+FROM orders o JOIN customers c
+on o.customer_id = c.customer_id
+GROUP BY c.company_name
 
 ### list customers names and the number of orders per customer. Sort the list by number of orders in descending order. _Save-a-lot Markets should be at the top with 31 orders followed by _Ernst Handle_ with 30 orders. Last should be _Centro comercial Moctezuma_ with 1 order.
 > This can be done by adding an ORDER BY clause to the previous answer
