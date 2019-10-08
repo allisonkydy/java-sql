@@ -170,6 +170,15 @@ Pet Table:
  
 > Use a LEFT JOIN to join the Orders table onto the Customers table and check for a NULL value in the OrderID column
 
+DELETE
+FROM customers
+WHERE customer_id IN (SELECT c.customer_id 
+						FROM customers c LEFT JOIN orders o
+						ON c.customer_id = o.customer_id
+						WHERE o.order_id is NULL)
+						
+deletes 3 records instead of 18, but I can only find three customers that do not have records in the orders table
+
 ## Create Database and Table
 
 ### After creating the database, tables, columns, and constraint, generate the script necessary to recreate the database. This script is what you will submit for review. 
@@ -185,3 +194,5 @@ Pet Table:
   - the `id` should be the primary key for the table.
   - account `name` should be unique.
   - account `budget` is required.
+  
+    
